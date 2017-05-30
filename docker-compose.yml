@@ -4,6 +4,7 @@ services:
 
   elasticsearch:
     build: elasticsearch/
+    image: localhost:5000/elasticsearch
     volumes:
       - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
     ports:
@@ -16,6 +17,7 @@ services:
 
   logstash:
     build: logstash/
+    image: localhost:5000/logstash
     volumes:
       - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml
       - ./logstash/pipeline:/usr/share/logstash/pipeline
@@ -30,6 +32,7 @@ services:
 
   kibana:
     build: kibana/
+    image: localhost:5000/kibana
     volumes:
       - ./kibana/config/:/usr/share/kibana/config
     ports:
